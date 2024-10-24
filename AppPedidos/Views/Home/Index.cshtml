@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="content-header">
+    <h1 class="font-l cor-h1">Home</h1>
+    <span class="cor-h2 font-ss">
+        <i class="fa-solid fa-gauge-high"></i>
+        home
+    </span>
+</section>
+<section class="menu-opcoes-home">
+    <div id="option_pedido" class="info-box">
+        <div class="icone">
+            <i class="fa-solid fa-clipboard-list cor-0"></i>
+        </div>
+        <div class="content">
+            <a asp-controller="Pedido" asp-action="Index" class="cor-h2">Novo Pedido</a>
+        </div>
+    </div>
+    <div id="option-meus-pedido" class="info-box">
+        <div class="icone">
+            <i class="fa-solid fa-list-check cor-0"></i>
+        </div>
+        <div class="content">
+            <a href="#" class="cor-h2">Meus Pedidos</a>
+        </div>
+    </div>
+    <div id="option-convenio" class="info-box">
+        <div class="icone">
+            <i class="fa-solid fa-notes-medical cor-0"></i>
+        </div>
+        <div class="content">
+            <a href="#" class="cor-h2">Convênios</a>
+        </div>
+    </div>
+    <div id="option-medico" class="info-box">
+        <div class="icone">
+            <i class="fa-solid fa-user-doctor cor-0"></i>
+        </div>
+        <div class="content">
+            <a href="#" class="cor-h2">Médicos</a>
+        </div>
+    </div>
+</section>
+<div class="box-ultimos-pedidos">
+    <div class="header-ultimos-pedidos with-border">
+        <h1 class="cor-h2 font-m">Ultimos Pedidos</h1>
+    </div>
+    <div class="box-table with-border">
+        <table class="table table-border">
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Hospital</th>
+                    <th>Paciente</th>
+                    <th>Data</th>
+                    <th class="hidden-table">Observações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01</td>
+                    <td>Albert Einsten</td>
+                    <td>Ana Clara</td>
+                    <td>22/05/2024</td>
+                    <td class="hidden-table">Não Possui</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Albert Einsten</td>
+                    <td>Ana Clara</td>
+                    <td>22/05/2024</td>
+                    <td class="hidden-table">Não Possui</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Albert Einsten</td>
+                    <td>Ana Clara</td>
+                    <td>22/05/2024</td>
+                    <td class="hidden-table">Não Possui</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Albert Einsten</td>
+                    <td>Ana Clara</td>
+                    <td>22/05/2024</td>
+                    <td class="hidden-table">Não Possui</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Albert Einsten</td>
+                    <td>Ana Clara</td>
+                    <td>22/05/2024</td>
+                    <td class="hidden-table">Não Possui</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="btn-area">
+        <a href="#" class="btn-primario cor-0">Ver Todos</a>
+    </div>
+</div> 

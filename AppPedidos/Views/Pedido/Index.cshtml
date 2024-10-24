@@ -1,0 +1,147 @@
+﻿@model AppPedidos.ViewModel.ItensEnvioViewModel
+
+@{
+    ViewData["Title"] = "Novo Pedido";
+    int produtoIndex = 0;
+    var sucessMessage = TempData["SucessMessage"] as string;
+    var errorMessage = TempData["ErrorMessage"] as string;
+}
+
+@if (!string.IsNullOrEmpty(sucessMessage))
+{
+    <div class="alert-sucess" id="alertId">
+        @sucessMessage
+    </div>
+}
+else if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert-danger" role="alert" >
+        @errorMessage
+    </div>
+}
+
+<section class="content-header">
+    <h1 class="font-l cor-h1">Novo Pedido</h1>
+    <span class="cor-h2 font-ss">
+        <i class="fa-solid fa-gauge-high"></i>
+        novo pedido
+    </span>
+</section>
+<section class="box-form-pedido">
+    <div class="header-ultimos-pedidos with-border">
+        <h1 class="cor-h2 font-m">Dados do procedimento</h1>
+    </div>
+    <form asp-action="EnviarPedido" asp-controller="Pedido">
+        <div class="input-check-box">
+            <input asp-for="Emergencial" type="checkbox" class="input-form-pedido" id="checkbox_emergencial">
+            <label asp-for="Emergencial" for="checkbox_emergencial">Emergencial?</label>
+        </div>
+        <div class="inputs-area">
+            <div class="input-area-date" id="conteiner_dataProcedimento">
+                <label for="DataProcedimento">Data</label>
+                <input asp-for="DataProcedimento" type="date" id="DataProcedimento">
+                <span asp-validation-for="DataProcedimento" class="cor-fa"></span>
+            </div>
+            <div class="input-hora" id="conteiner_horaProcedimento">
+                <label for="HoraProcedimento">Hora</label>
+                <input asp-for="HoraProcedimento" id="HoraProcedimento" type="time">
+                <span asp-validation-for="HoraProcedimento" class="cor-fa"></span>
+            </div>
+            <div class="input-area-hospital">
+                <label>Hospital</label>
+                <select asp-for="HospitalSelecionado.HospitalId">
+                    <option selected>Selecione</option>
+                    @foreach (var hospitais in Model.Hospitais)
+                    {
+                        <option value="@hospitais.HospitalId">@hospitais.NomeHospital.ToLower()</option>
+                        <input asp-for="HospitalSelecionado.NomeHospital" type="hidden" value="@hospitais.NomeHospital" />
+                    }
+                </select>
+                <span asp-validation-for="HospitalSelecionado.NomeHospital" class="cor-fa"></span>
+            </div>
+            <div class="input-area-paciente">
+                <label>Paciente</label>
+                <select asp-for="PacienteSelecionado.PacienteId">
+                    <option selected>Selecione</option>
+                    @foreach (var paciente in Model.Pacientes)
+                    {
+                        <option value="@paciente.PacienteId">@paciente.NomePaciente.ToLower()</option>
+                        <input asp-for="PacienteSelecionado.NomePaciente" type="hidden" value="@paciente.NomePaciente" />
+                    }
+                    <span asp-validation-for="PacienteSelecionado.NomePaciente" class="cor-fa"></span>
+                </select>
+            </div>
+            <div class="input-area-medico">
+                <label>Médico</label>
+                <select asp-for="MedicoSelecionado.MedicoId">
+                    <option selected>Selecione..</option>
+                    @foreach (var medico in Model.Medicos)
+                    {
+                        <option value="@medico.MedicoId">@medico.NomeMedico.ToLower()</option>
+                        <input asp-for="MedicoSelecionado.NomeMedico" type="hidden" value="@medico.NomeMedico"/>
+                    }
+                </select>
+                <span asp-validation-for="MedicoSelecionado.NomeMedico" class="cor-fa"></span>
+            </div>
+            <div class="input-area-convenio">
+                <label>Convênio</label>
+                <select class="input-convenio" asp-for="ConvenioSelecionado.ConvenioId">
+                    <option selected>Selecione..</option>
+                    @foreach (var convenio in Model.Convenios)
+                    {
+                        <option value="@convenio.ConvenioId">@convenio.NomeConvenio.ToLower()</option>
+                        <input asp-for="ConvenioSelecionado.NomeConvenio" type="hidden" value="@convenio.NomeConvenio" />       
+                    }
+
+                </select>
+                <span asp-validation-for="ConvenioSelecionado.NomeConvenio" class="cor-fa"></span>
+            </div>
+            <div class="input-area-textarea with-border">
+                <label>Observações</label>
+                <textarea asp-for="Observacoes"></textarea>
+            </div>
+
+        </div>
+        <div class="header-ultimos-pedidos">
+            <h1 class="cor-h2 font-l">Produtos</h1>
+        </div>
+        @foreach (var categoria in Model.Categorias)
+        {
+            <details>
+                <summary class="categoria-produto">@categoria.CategoriaNome</summary>
+                @foreach (var subcategoria in categoria.Subcategorias)
+                {
+                    <details>
+                        <summary class="subcategoria-produto">@subcategoria.NomeSubcategoria</summary>
+
+                        @for (int i = 0; i < subcategoria.Produtos.Count(); i++)
+                        {
+                            var produtos = subcategoria.Produtos[i];
+
+                            <div class="produto-area with-border ">
+                                <div class="referencia">
+                                    <p>@produtos.CodigoProduto</p>
+                                    <input asp-for="ProdutoSelecionados[produtoIndex].ProdutoId" type="hidden" value="@produtos.ProdutoId" />
+                                    <input asp-for="ProdutoSelecionados[produtoIndex].CodigoProduto" type="hidden" value="@produtos.CodigoProduto" />
+                                </div>
+                                <div class="descricao">
+                                    <p>@produtos.DescricaoProduto</p>
+                                    <input asp-for="ProdutoSelecionados[produtoIndex].DescricaoProduto" type="hidden" value="@produtos.DescricaoProduto" />
+                                </div>
+                                <div class="quantidade">
+                                    <input asp-for="ProdutoSelecionados[produtoIndex].Quantidade" type="number" class="form-control" id="quantidade_@produtos.ProdutoId" value="0" class="input-pedido">
+                                </div>
+                            </div>
+                            produtoIndex++;
+                        }
+                    </details>
+                }
+            </details>
+        }
+
+        <div class="btn-area-pedido">
+            <button type="submit" class="btn-primario cor-0">Salver e envar</button>
+        </div>
+    </form>
+</section>
+

@@ -1,0 +1,114 @@
+.box-form-pedido {
+    padding: 10px 20px;
+    background-color: var(--cor-0);
+    margin: 0 30px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.inputs-area {
+    display: grid;
+    padding-top: 10px ;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+
+.input-check-box{
+    display: flex;
+    align-items: center;
+}
+
+.input-check-box input{
+    width: 20px;
+}
+
+.input-area-textarea {
+    grid-column: 3 span;
+    padding-bottom: 10px;
+}
+
+.categoria-produto {
+    color: #25348b;
+    background: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.subcategoria-produto{
+    background-color: #ffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.produto-area{
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-area-pedido{
+    margin: 20px 0;
+}
+
+.alert-sucess {
+    background: var(--cor-su);
+    color: var(--cor-0);
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 50px 50px rgba(0, 0, 0,.1);
+    position: fixed;
+    bottom: 20px;
+    transform: translateX(-50%);
+}
+
+.hidden {
+    display: none;
+}
+
+@media(max-width:900px){
+    .box-form-pedido {
+        padding: 10px;
+        background-color: var(--cor-0);
+        margin: 0 10px;
+    }
+
+    .inputs-area {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .input-area-textarea {
+        grid-column: 2 span;
+        padding-bottom: 10px;
+    }
+}
+
+@media(max-width:500px){
+    .inputs-area {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .input-area-textarea {
+        grid-column: 1 span;
+        padding-bottom: 10px;
+    }
+
+    .box-form-pedido {
+        padding: 10px;
+        background-color: var(--cor-0);
+        margin: 0 10px;
+    }
+
+    .produto-area .referencia p{
+        font-size: 10px;
+    }
+
+    .produto-area .descricao p{
+        font-size: 10px;
+    }
+}

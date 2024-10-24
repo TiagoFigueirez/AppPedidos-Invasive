@@ -1,0 +1,135 @@
+* {
+    font: 400 16px/1.5 "Roboto", sans-serif;
+    font-weight: 400;
+    line-height: 1.42857143;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: calc(100vh - 60px);
+    margin: 0;
+    background: var(--cor-bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button{
+    all: unset;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.conteudo-central {
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr 50px;
+    transition: width 90s ease;
+}
+
+/* estilos gerais da tabela */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-border {
+    border: 1px solid #f4f4f4;
+}
+
+.table-border th,
+.table-border td {
+    border: 1px solid #f4f4f4;
+    padding: 8px;
+    text-align: start;
+}
+
+th {
+    font-weight: bold;
+}
+
+label{
+    display: block;
+    font-weight: 600;
+}
+
+input, select, textarea{
+    border: 1px solid #d2d6de;
+    padding: 10px;
+    height: 40px;
+    width: 100%;
+}
+
+input:focus, select:focus, textarea:focus{
+    border-color: var(--cor-bpr);
+    outline: var(--cor-bpr);
+    padding: 10px;
+}
+
+input[type="date"],
+input[type="time"]{
+    padding: 10px;
+}
+
+input[type="date"]:focus-within,
+input[type="time"]:focus-within {
+    border-color:  var(--cor-bpr); 
+}
+
+textarea{
+    height: 100px;
+}
+
+summary {
+    all: unset;
+    width: 100%;
+    padding: 15px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+footer {
+    border: #f4f4f4;
+    background: var(--cor-0);
+    margin-top: 20px;
+    border-top: 1px solid #d2d6de;
+    padding: 10px;
+    width: 100%;
+}
+
+@media(max-width: 900px){
+    body, html {
+        height: calc(100vh - 120px);
+    }
+
+    .conteudo-central {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        position: relative;
+    }
+
+ th,td{
+        font-size: 12px;
+        width: 10px;
+    }
+    
+
+}

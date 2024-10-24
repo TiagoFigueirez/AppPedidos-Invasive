@@ -1,0 +1,72 @@
+﻿@model X.PagedList.IPagedList<AppPedidos.Models.Convenio>
+@using X.PagedList.Mvc.Core
+
+@{
+    ViewData["Title"] = "Convênios";
+}
+
+<section class="content-header">
+    <h1 class="font-l cor-h1">Convênios</h1>
+    <span class="cor-h2 font-ss">
+        <i class="fa-solid fa-gauge-high"></i>
+        convênios
+    </span>
+</section>
+
+<div class="box-convenio">
+    <div class="header-ultimos-pedidos with-border">
+        <h1 class="cor-h2 font-m">Convênios Cadastrados</h1>
+    </div>
+
+    <div class="pesquisa-area">
+        <input class="" />
+        <button></button>
+    </div>
+
+    <div class="box-table with-border">
+        <table class="table table-border">
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Convênio</th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var convenio in Model)
+                {
+                    <tr>
+                        <td>@convenio.ConvenioId</td>
+                        <td>@convenio.NomeConvenio</td>
+                        <td>
+                            <a class="btn-secundario cor-0">Editar</a>
+                            <a href="#" class="btn-deletar cor-0">Excluir</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new
+    PagedListRenderOptions
+    {
+    DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+    DisplayLinkToLastPage = PagedListDisplayMode.Always,
+    DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+    DisplayLinkToNextPage = PagedListDisplayMode.Always,
+    LinkToFirstPageFormat = "<i class='fas fa-angle-double-left'></i>",
+    LinkToLastPageFormat = "<i class='fas fa-angle-double-right'></i>",
+    LinkToPreviousPageFormat = "<i class='fas fa-chevron-left'></i>",
+    LinkToNextPageFormat = "<i class='fas fa-chevron-right'></i>",
+    MaximumPageNumbersToDisplay = 5,
+    UlElementClasses = new[] {"pagination"},
+    LiElementClasses = new[] {"page-item"},
+    PageClasses = new [] {"page-link"}
+    }
+    )
+    <section class="btn-area-convênio">
+        <a href="#" class="btn-primario cor-0">Adicionar</a>
+    </section>
+</div>

@@ -1,0 +1,30 @@
+.box-ultimos-pedidos{
+    background: var(--cor-0);
+    margin: 30px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.header-ultimos-pedidos{
+    padding: 10px;
+}
+
+.box-table{
+    padding: 10px;
+}
+
+.btn-area{
+    padding: 10px;
+    width: 100%;
+}
+
+@media(max-width:800px){
+    .btn-area{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .box-ultimos-pedidos{
+        margin: 30px 15px;;
+    }
+}

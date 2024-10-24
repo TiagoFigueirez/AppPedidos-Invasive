@@ -1,0 +1,20 @@
+/*estilos gerais*/
+@import url(/css/global/global.css);
+@import url(/css/utilidades/tipografia.css);
+@import url(/css/utilidades/cores.css);
+@import url(/css/fontawesome/css/all.min.css);
+@import url(/css/utilidades/componentes.css);
+
+/* estilos da navegação  */
+@import url(/css/global/header.css);
+@import url(/css/global/sidebar.css);
+
+/* Home */
+@import url(/css/Home/home-topo.css);
+@import url(Home/home-principal.css);
+
+/* Novo Pedido */
+@import url(/css/Pedidos/formPedido.css);
+
+/*Convênio*/
+@import url(/css/convênio/convenio.css);

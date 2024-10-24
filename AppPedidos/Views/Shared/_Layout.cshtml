@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invasive Pedidos - @ViewData["Title"] </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" asp-append-version="true">
+    <link rel="stylesheet" href="/css/style.css" asp-append-version="true" />
+
+</head>
+<body>
+    <header class="header-bg">
+        <div class="img-logo" id="img-logo">
+            <img src="~/img/Logo_site.jpg" id="image_logo" alt="Logo do Site com o nome invasive">
+        </div>
+
+        <nav class="nav-bar">
+            <div class="btn-hamburguer cor-0" id="toggle_button">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="user-area">
+                <p class="cor-0">Sicrano</p>
+                <i class="cor-0 fa-solid fa-chevron-up" id="btn_seta"></i>
+                <ul id="sub-menu-user">
+                    <li>
+                        <a href="#" class="cor-h2">
+                            <i class="fa-regular fa-user cor-h2"></i>
+                            Perfil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="homecontroller.html" class="cor-h2">
+                            <i class="fa-solid fa-right-from-bracket cor-h2"></i>
+                            Sair
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="conteudo-central">
+        <aside class="main-sidebar" id="main-sidebar">
+            <section class="sidebar">
+                <div class="user-panel">
+                    <div class="user-img sidebar-item">
+                        <img src="~/img/imagem user.svg" alt="Logo usuario">
+                    </div>
+                    <div class="user-name cor-0 sidebar-item">
+                        <span>Sicrano</span>
+                    </div>
+                </div>
+
+                <ul>
+                    <li class="sidebar-item">
+                        <span class="menu-title">MAIN MENU</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a asp-controller="Home" asp-action="Index" class="cor-bsb1">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a asp-controller="Pedido" asp-action="Index" class="cor-bsb1">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                            <span>Novo Pedido</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="cor-bsb1">
+                            <i class="fa-solid fa-list-check"></i>
+                            <span>Meus Pedidos</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a asp-controller="Convenio" asp-action="Index" class="cor-bsb1">
+                            <i class="fa-solid fa-notes-medical"></i>
+                            <span>Convênios</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="cor-bsb1">
+                            <i class="fa-solid fa-user-doctor"></i>
+                            <span>Médicos</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <main class="conteudo-principal">
+            @RenderBody()
+        </main>
+
+        <footer>
+            2.4.13Copyright © 2024 Invasive. All rights reserved.
+        </footer>
+
+    </div>
+    <script src="~/js/global.js" asp-append-version="true"></script>
+    <script src="~/js/PedidoController.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
