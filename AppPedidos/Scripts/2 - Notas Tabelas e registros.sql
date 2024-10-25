@@ -8,3 +8,5 @@ SELECT*FROM Medico;
 SELECT*FROM Convenio
 SELECT*FROM Paciente;
 SELECT*FROM Hospital;
+
+INSERT INTO Convenio (NomeConvenio, Habilitado, RoleId) VALUES ('NÃO INFORMADO', 1, 1),('BRADESCO',1,1),('NOTRE DAME MEDICAL', 1,1)

@@ -89,8 +89,7 @@ else if (!string.IsNullOrEmpty(errorMessage))
                     <option selected>Selecione..</option>
                     @foreach (var convenio in Model.Convenios)
                     {
-                        <option value="@convenio.ConvenioId">@convenio.NomeConvenio.ToLower()</option>
-                        <input asp-for="ConvenioSelecionado.NomeConvenio" type="hidden" value="@convenio.NomeConvenio" />       
+                        <option value="@convenio.ConvenioId">@convenio.NomeConvenio.ToLower()</option>                         
                     }
 
                 </select>

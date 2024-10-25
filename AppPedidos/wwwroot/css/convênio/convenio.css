@@ -3,6 +3,12 @@
     width: 100%;
 }
 
+.header-convenio {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .box-convenio {
     background: var(--cor-0);
     margin: 10px 30px;
@@ -10,4 +16,16 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
+.pesquisa-area{
+    display: flex;
+}
+
+.pesquisa-area input{
+    max-width: 50%;
+    height: 30px;
+}
+
+.pesquisa-area a {
+    height: 30px;
+}
 

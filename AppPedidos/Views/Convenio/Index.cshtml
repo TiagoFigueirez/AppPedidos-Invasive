@@ -14,13 +14,13 @@
 </section>
 
 <div class="box-convenio">
-    <div class="header-ultimos-pedidos with-border">
+    <div class="header-convenio with-border">
         <h1 class="cor-h2 font-m">Convênios Cadastrados</h1>
-    </div>
 
-    <div class="pesquisa-area">
-        <input class="" />
-        <button></button>
+        <div class="pesquisa-area">
+            <input id="input-pesquisar-convenio" />
+            <a id="btn_pesquisar_convenio" class="btn-primario cor-0"><i class="fa-solid fa-magnifying-glass"></i></a>
+        </div>
     </div>
 
     <div class="box-table with-border">
@@ -50,8 +50,8 @@
         </table>
     </div>
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new
-    PagedListRenderOptions
-    {
+            PagedListRenderOptions
+{
     DisplayLinkToFirstPage = PagedListDisplayMode.Always,
     DisplayLinkToLastPage = PagedListDisplayMode.Always,
     DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
@@ -61,11 +61,11 @@
     LinkToPreviousPageFormat = "<i class='fas fa-chevron-left'></i>",
     LinkToNextPageFormat = "<i class='fas fa-chevron-right'></i>",
     MaximumPageNumbersToDisplay = 5,
-    UlElementClasses = new[] {"pagination"},
-    LiElementClasses = new[] {"page-item"},
-    PageClasses = new [] {"page-link"}
-    }
-    )
+    UlElementClasses = new[] { "pagination" },
+    LiElementClasses = new[] { "page-item" },
+    PageClasses = new[] { "page-link" }
+}
+            )
     <section class="btn-area-convênio">
         <a href="#" class="btn-primario cor-0">Adicionar</a>
     </section>
